@@ -7,10 +7,10 @@ public class Hello : MonoBehaviour
     void Start()
     {
         Debug.Log("Hello, World!");
+        print("hello");
     }
 
     void Update()
     {
-
     }
 }
