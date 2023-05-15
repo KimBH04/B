@@ -11,6 +11,17 @@ public class PlayerController : MonoBehaviour
     Camera viewCamera;
     Vector3 velocity;
 
+    public int PlayerHp = 50;
+
+    public void Damanged(int dam)
+    {
+        PlayerHp -= dam;
+        if (PlayerHp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         viewCamera = Camera.main;

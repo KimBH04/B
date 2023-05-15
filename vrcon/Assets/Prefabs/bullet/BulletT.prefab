@@ -128,3 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchDir: {x: 0, y: 0, z: 0}
+  projectileType: 0
+  asdf: 0
+  jkl: 0
