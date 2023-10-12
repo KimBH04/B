@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyController : MonoBehaviour
+{
+    public float moveSpeed;
+    private MonsterPath thePath;
+    private int currentPoint;
+    private bool reachedEnd;
+
+    void Start()
+    {
+        if (thePath == null)
+        {
+            thePath = FindObjectOfType<MonsterPath>();
+        }
+    }
+
+    void Update()
+    {
+        if (reachedEnd == false)
+        {
+            transform.LookAt(thePath.points[currentPoint]);
+
+            transform.position = Vector3.MoveTowards(transform.position
+                , thePath.points[currentPoint].position, moveSpeed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, thePath.points[currentPoint].position) < 0.01f)
+            {
+                currentPoint += 1;
+
+                if (currentPoint >= thePath.points.Length)
+                {
+                    reachedEnd = true;
+                }
+            }
+        }
+    }
+}
