@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody rb;
 
     public float moveSpeed;
-    public float damagedAmount;
+    public float damageAmount;
     private bool hasDamaged;
 
     void Start()
@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
         Debug.Log("Pakin");
         if (other.CompareTag("Enemy") && !hasDamaged)
         {
+            other.GetComponent<EnemyHealthController>().TakeDamage((int)damageAmount);
             hasDamaged = true;
             Destroy(gameObject);
         }
